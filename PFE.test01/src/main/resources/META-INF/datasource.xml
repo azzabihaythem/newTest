@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+<!-- 		<property name="url" value="jdbc:mysql://localhost:3306/hantor" /> localhost:3309/medwatch -->
+<property name="url" value="jdbc:mysql://51.254.129.47:3306/azzabikhaled" /> <!-- localhost:3309/hantor /azzabikhaled-->
+		<property name="username" value="hay" /><!-- root   hantor  hay-->
+		<property name="password" value="Zannovich1990**" /><!-- Zannovich  hantor ' Zannovich1990**'-->
+		<!-- http://eniso-stage.educanet-online.com/ 8089 -->
+		<!-- 37.187.91.172:8089 ou 8785 -->
+	</bean>
+</beans>

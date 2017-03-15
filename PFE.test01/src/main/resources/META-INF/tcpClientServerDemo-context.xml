@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-ip="http://www.springframework.org/schema/integration/ip"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:stream="http://www.springframework.org/schema/integration/stream"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/ip http://www.springframework.org/schema/integration/ip/spring-integration-ip.xsd
+        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/integration/spring-integration-2.0.xsd
+        http://www.springframework.org/schema/integration/stream
+        http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.0.xsd">
+
+
+
+	<context:component-scan base-package="com.haythem.integration" />
+<!--  <bean id="javaSerializer" class="org.springframework.integration.ip.tcp.serializer.ByteArrayCrLfSerializer" /> -->
+ <bean id="javaDeserializer" class="com.haythem.integration.deser" />
+ 
+<!-- serializer.ByteArrayCrLfSerializer -->
+<int-ip:tcp-connection-factory id="serverConnectionFactory"
+    type="server" host="localhost" port="8785" single-use="false"
+  deserializer="javaDeserializer"  
+   />
+   
+   
+<!-- deserializer="javaDeserializer" serializer="javaSerializer"   -->
+
+    <int-ip:tcp-inbound-gateway id="gatewayCrLf"
+        connection-factory="serverConnectionFactory" request-channel="loop"  />
+ 
+    <int:channel id="loop" />
+
+    <bean id="echoService" class="com.haythem.integration.EchoService" />
+  
+     
+     
+     <int:service-activator input-channel="loop"
+        ref="echoService" method="test">
+    </int:service-activator>
+   
+    
+
+    
+    
+
+</beans>
