@@ -170,7 +170,7 @@ public class FactureGlobalPdfBuilderSeance {
 		 cal = Calendar.getInstance();
 	    cal.set(Calendar.MONTH, factureDate.getMonth());
 	    
-	    cal.set(Calendar.YEAR, 2017);
+	    cal.set(Calendar.YEAR, 2018);
 	    cal.set(Calendar.DAY_OF_MONTH, 1);// This is necessary to get proper results
 	    cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
 	    cal.getTime();	
@@ -320,7 +320,7 @@ public class FactureGlobalPdfBuilderSeance {
 				 cal = Calendar.getInstance();
 			    cal.set(Calendar.MONTH, factureDate.getMonth());
 			    
-			    cal.set(Calendar.YEAR, 2017);
+			    cal.set(Calendar.YEAR, 2018);
 			    cal.set(Calendar.DAY_OF_MONTH, 1);// This is necessary to get proper results
 			    cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
 			    cal.getTime();	

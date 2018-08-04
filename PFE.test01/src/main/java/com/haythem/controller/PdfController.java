@@ -323,13 +323,13 @@ public class PdfController {
 		response.setHeader("Content-Disposition", "attachment; filename="
 				+ fileName);
 		 Date date = new Date();
-		 
+		 System.out.println("month = "+m);
 		
 //		 date.setMonth(Integer.parseInt(m.substring(0, 1)));
 //		 date.setYear(Integer.parseInt(m.substring(2)));
 		 
 		 date.setMonth(m);
-		 date.setYear(2017);
+		 date.setYear(2018);
 //		 List<User> user = userService.findAll();
 		 String borderau ="";
 		 String borderauComp ="";
