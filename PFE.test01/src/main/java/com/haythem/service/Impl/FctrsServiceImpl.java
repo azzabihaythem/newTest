@@ -542,12 +542,13 @@ public class FctrsServiceImpl implements FctrsService {
 
 		String borderauNumber = bordereauService.findByMonthAndYear(
 				date.getMonth() + "", date.getYear() + "").getBorderauNumber();
-		if (borderauNumber == null) {
+		if (borderauNumber == null || "0".equals(borderauNumber)) {
 			borderauNumber = bordereauService.findByMonthAndYear(
 					date.getMonth() + "", date.getYear() + "").getId()
 					+ "";
 
 		}
+		System.out.println("****************borderauNumber "+borderauNumber);
 		while (borderauNumber.length() < 3) {
 
 			borderauNumber = "0" + borderauNumber;
@@ -659,7 +660,7 @@ public class FctrsServiceImpl implements FctrsService {
 
 		String borderauNumber = bordereauService.findByMonthAndYear(
 				date.getMonth() + "", date.getYear() + "").getBorderauNumber();
-		if (borderauNumber == null) {
+		if (borderauNumber == null || "0".equals(borderauNumber)) {
 			borderauNumber = bordereauService.findByMonthAndYear(
 					date.getMonth() + "", date.getYear() + "").getId()
 					+ "";

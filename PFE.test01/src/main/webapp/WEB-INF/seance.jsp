@@ -746,6 +746,7 @@
 					</div>
 
 
+
 					<!-- ***********************************start 4************************** -->
 
 					<div class="row-fluid sortable">
@@ -795,6 +796,30 @@
 						<!--/span-->
 					</div>
 					<!--/row-->
+					
+					
+					<div class="row-fluid sortable">
+						<div class="box span12">
+							<div class="box-header">
+								<h2>
+									<i class="icon-align-justify"></i><span class="break"></span>Text Facture
+									Glo
+								</h2>
+								<div class="box-icon">
+
+									<a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
+									<a href="#" class="btn-close"><i class="icon-remove"></i></a>
+								</div>
+							</div>
+							<div class="box-content">
+								<p>
+									Date: <input type="text" class="input-xlarge datepicker"
+										id="datepicker1">
+								</p>
+								<a class="btn btn-primary" href="" id="txtfileid">Download txt</a>
+							</div>
+						</div>
+					</div>
 
 					<div class="modal hide fade" id="met">
 						<div class="modal-header">
@@ -826,7 +851,7 @@
 						<div class="modal hide fade" id="met2">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">Close</button>
-							<h3>Seance Deleted</h3>
+							<h3>success</h3>
 
 						</div>
 
@@ -1254,8 +1279,19 @@ function deleteAjaxSeance(iduser){
 //     calendar.fullCalendar('unselect');
 	
 </script>
-
-
+<script>
+$( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+$("#datepicker1").change(function() {
+//     alert($(this).val());
+    
+    var date = $(this).datepicker('getDate'),
+    month = date.getMonth(),              
+    year =  date.getFullYear();
+    document.getElementById("txtfileid").href="/PFE.test01/txt?m="+month+"&&year="+year; 
+});
+</script>
 
 </body>
 

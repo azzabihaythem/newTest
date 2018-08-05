@@ -318,18 +318,18 @@ public class PdfController {
 
 	@ResponseBody
 	@RequestMapping(value = "/txt")
-	public String txtResponse(HttpServletResponse response, @RequestParam int m) {
+	public String txtResponse(HttpServletResponse response, @RequestParam int m, @RequestParam int year) {
 		String fileName = "fctrs.txt";
 		response.setHeader("Content-Disposition", "attachment; filename="
 				+ fileName);
 		 Date date = new Date();
 		 System.out.println("month = "+m);
-		
+		 System.out.println("***********year = "+year);
 //		 date.setMonth(Integer.parseInt(m.substring(0, 1)));
 //		 date.setYear(Integer.parseInt(m.substring(2)));
 		 
 		 date.setMonth(m);
-		 date.setYear(2018);
+		 date.setYear(year);
 //		 List<User> user = userService.findAll();
 		 String borderau ="";
 		 String borderauComp ="";

@@ -168,8 +168,8 @@ public class PdfBuilderSeance {
 		
 		Calendar cal = Calendar.getInstance();
 	    cal.set(Calendar.MONTH, seanceList.get(0).getDate().getMonth());
-//	    cal.set(Calendar.YEAR, seanceList.get(0).getDate().getYear());
-	    cal.set(Calendar.YEAR, 2018);
+	    cal.set(Calendar.YEAR, seanceList.get(0).getDate().getYear()+1900);
+//	    cal.set(Calendar.YEAR, 2018);
 	    cal.set(Calendar.DAY_OF_MONTH, 1);// This is necessary to get proper results
 	    cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
 	    cal.getTime();	
@@ -613,8 +613,8 @@ public class PdfBuilderSeance {
 		 seanceNumber = aSeanceListPatient.getValue().size()+"";
 		Calendar cal = Calendar.getInstance();
 	    cal.set(Calendar.MONTH, aSeanceListPatient.getValue().get(0).getDate().getMonth());
-//	    cal.set(Calendar.YEAR, seanceList.get(0).getDate().getYear());
-	    cal.set(Calendar.YEAR, 2018);
+	    cal.set(Calendar.YEAR,  aSeanceListPatient.getValue().get(0).getDate().getYear()+1900);
+//	    cal.set(Calendar.YEAR, 2018);
 	    cal.set(Calendar.DAY_OF_MONTH, 1);// This is necessary to get proper results
 	    cal.set(Calendar.DATE, cal.getActualMaximum(Calendar.DATE));
 	    cal.getTime();	
