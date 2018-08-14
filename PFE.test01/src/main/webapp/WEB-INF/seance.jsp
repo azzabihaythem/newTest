@@ -1289,7 +1289,7 @@ $("#datepicker1").change(function() {
     var date = $(this).datepicker('getDate'),
     month = date.getMonth(),              
     year =  date.getFullYear();
-    document.getElementById("txtfileid").href="/PFE.test01/txt?m="+month+"&&year="+year; 
+    document.getElementById("txtfileid").href="/txt?m="+month+"&&year="+year; 
 });
 </script>
 
