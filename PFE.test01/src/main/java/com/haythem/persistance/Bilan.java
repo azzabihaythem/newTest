@@ -267,6 +267,36 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
+
+
+	public Bilan(String generateur, String filtre, String poidsSec, String uFTDuree, String debutDeDialyse,
+			String poidsDebut, String priseDePoids, String tensionarterielleDebut, String finDeDialyse, String poidsFin,
+			String perteDePoids, String tensionarterielleFin, Boolean heparine, String traitement, User infirmier,
+			Seance seance, String observationMedicales, String uFT, String options) {
+		super();
+		this.generateur = generateur;
+		Filtre = filtre;
+		PoidsSec = poidsSec;
+		UFTDuree = uFTDuree;
+		DebutDeDialyse = debutDeDialyse;
+		this.poidsDebut = poidsDebut;
+		this.priseDePoids = priseDePoids;
+		TensionarterielleDebut = tensionarterielleDebut;
+		FinDeDialyse = finDeDialyse;
+		this.poidsFin = poidsFin;
+		this.perteDePoids = perteDePoids;
+		TensionarterielleFin = tensionarterielleFin;
+		this.heparine = heparine;
+		Traitement = traitement;
+		this.infirmier = infirmier;
+		this.seance = seance;
+		this.observationMedicales = observationMedicales;
+		UFT = uFT;
+		this.options = options;
+	}
+
+
 	public Bilan() {
 	}
 	

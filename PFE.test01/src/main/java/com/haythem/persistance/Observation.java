@@ -141,5 +141,20 @@ public class Observation extends AbstractPersistable<Long>{
 
 	public Observation() {
 	}
+
+	public Observation(String heure, String tension_arterielle, String heparine, String debit_sang, String uf,
+			String pv, String ptm, String uf_cumule, String observation, Bilan bilan) {
+		super();
+		this.heure = heure;
+		this.tension_arterielle = tension_arterielle;
+		this.heparine = heparine;
+		this.debit_sang = debit_sang;
+		this.uf = uf;
+		this.pv = pv;
+		this.ptm = ptm;
+		this.uf_cumule = uf_cumule;
+		this.observation = observation;
+		this.bilan = bilan;
+	}
 	
 }
