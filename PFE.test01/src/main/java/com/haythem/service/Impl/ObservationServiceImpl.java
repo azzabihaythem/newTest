@@ -37,8 +37,8 @@ import com.haythem.service.ObservationService;
 	}
 
 	@Override
-	public void update(Long idObservation,String heure, String tension_arterielle, String heparine, String debit_sang, String uf,
-			String pv, String ptm, String uf_cumule, String observation, Bilan bilan) {
+	public void update(Long idObservation,String heure, String tension_arterielle_s, String tension_arterielle_d, String heparine,
+			String debit_sang, String uf, String pv, String ptm, String uf_cumule, String observation, Bilan bilan) {
 		
 		Observation obs = findOne(idObservation);
 		
@@ -48,17 +48,16 @@ import com.haythem.service.ObservationService;
 		obs.setObservation(observation);
 		obs.setPtm(ptm);
 		obs.setPv(pv);
-		obs.setTension_arterielle(tension_arterielle);
+		obs.setTension_arterielle_s(tension_arterielle_s);
+		obs.setTension_arterielle_d(tension_arterielle_d);
 		obs.setUf(uf_cumule);
 		obs.setUf_cumule(uf_cumule);
-			
 		save(obs);
-		
 	}
-	
-	
-	
-	
-	
+
+	@Override
+	public List<Observation> findByBilan(Bilan bilan) {
+		return repository.findByBilan(bilan);
+	}
 
 }

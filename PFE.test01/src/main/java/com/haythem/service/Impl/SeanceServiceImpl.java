@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.mockito.asm.tree.TryCatchBlockNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,17 +14,21 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.haythem.dao.SeanceDao;
+import com.haythem.persistance.Bilan;
 import com.haythem.persistance.Facture;
 import com.haythem.persistance.PatientDetails;
 import com.haythem.persistance.PatientSeanceDays;
 import com.haythem.persistance.Seance;
 import com.haythem.persistance.Type;
 import com.haythem.persistance.User;
+import com.haythem.service.BilanService;
 import com.haythem.service.FactureService;
 import com.haythem.service.PatientDetailsService;
 import com.haythem.service.PatientSeanceDaysService;
 import com.haythem.service.SeanceService;
 import com.haythem.service.TypeService;
+
+import scala.util.Try;
 
 @Service
 public class SeanceServiceImpl implements SeanceService {
@@ -38,6 +43,8 @@ public class SeanceServiceImpl implements SeanceService {
 	PatientSeanceDaysService patientSeanceDaysService;
 	@Autowired
 	TypeService typeService;
+	@Autowired
+	private BilanService bilanService;
 
 	@Override
 	public void save(Seance seance) {
@@ -58,6 +65,13 @@ public class SeanceServiceImpl implements SeanceService {
 
 	@Override
 	public void delete(Long long1) {
+		
+	    try {
+			Bilan bilan = bilanService.findBySeance(findOne(long1));
+			bilanService.delete(bilan.getId());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		repository.delete((long) long1);
 
 	}
