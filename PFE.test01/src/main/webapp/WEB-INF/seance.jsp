@@ -245,6 +245,8 @@
                                                   <a href="bilan?id=${u.id}">
                                                   <img src="<c:url value="/resources/img/observation.png"/>" height="42" width="42" >
                                                   </a>
+                                                  <a href="downloadBilanSeancePdf?idSeance=${u.id}">PDF
+                                                  </a>
                                                 </td>
 												<td class="center"><a class="btn btn-info btn-setting"
 													onclick="affichage(<%= j %>,${u.id})"> <i
