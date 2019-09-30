@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.haythem.model.FactureGlobaleModel;
 import com.haythem.model.PatientDetailsInformationModel;
 import com.haythem.persistance.Banque;
+import com.haythem.persistance.Bilan;
 import com.haythem.persistance.Clinique;
 import com.haythem.persistance.Information;
 import com.haythem.persistance.Mesure;
+import com.haythem.persistance.Observation;
 import com.haythem.persistance.Patient;
 import com.haythem.persistance.PatientDetails;
 import com.haythem.persistance.Seance;
@@ -25,8 +27,8 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
 
 /**
- *  * This view class generates a PDF document 'on the fly' based on the data  *
- * contained in the model.  * @author www.codejava.net  *  
+ * ï¿½* This view class generates a PDF document 'on the fly' based on the data ï¿½*
+ * contained in the model. ï¿½* @author www.codejava.net ï¿½* ï¿½
  */
 public class PDFBuilder extends AbstractITextPdfView {
 
@@ -39,7 +41,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 	SupervisorPdf supervisorPdf = new SupervisorPdf();
 	PdfBuilderSeance pdfBuilderSeance = new PdfBuilderSeance();
 	FactureGlobalPdfBuilderSeance factureGlobalPdfBuilderSeance = new FactureGlobalPdfBuilderSeance();
-
+	PdfBuilderBilan pdfBuilderBilan = new PdfBuilderBilan();
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document doc,
 			PdfWriter writer, HttpServletRequest request,
@@ -101,6 +103,16 @@ public class PDFBuilder extends AbstractITextPdfView {
 									.get("bordereauId"), (Clinique) model
 									.get("clinique"), (Banque) model
 									.get("banque"), doc);
+		}
+		if (type.equals("BilanSeance")) {
+			pdfBuilderBilan.doPdfTotal((Seance) model
+					.get("seance"),(Information) model
+					.get("patientInformation"),(User) model
+					.get("adminInformation"),
+					(Bilan) model
+							.get("bilan"), (Clinique) model.get("clinique"),doc,
+					(List<Observation>) model.get("observations"), (Banque) model
+							.get("banque"));
 		}
 
 	}

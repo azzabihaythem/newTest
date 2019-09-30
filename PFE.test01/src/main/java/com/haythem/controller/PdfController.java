@@ -20,21 +20,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.haythem.dao.ObservationDao;
 import com.haythem.model.FactureGlobaleModel;
 import com.haythem.model.PatientDetailsInformationModel;
 import com.haythem.model.SeanceModel;
 import com.haythem.model.SeanceModel2;
+import com.haythem.persistance.Bilan;
 import com.haythem.persistance.Information;
+import com.haythem.persistance.Observation;
 import com.haythem.persistance.PatientDetails;
 import com.haythem.persistance.Seance;
 import com.haythem.service.AdressService;
 import com.haythem.service.BanqueService;
+import com.haythem.service.BilanService;
 import com.haythem.service.BordereauService;
 import com.haythem.service.CliniqueService;
 import com.haythem.service.FactureService;
 import com.haythem.service.FctrsService;
 import com.haythem.service.InformationService;
 import com.haythem.service.MesureService;
+import com.haythem.service.ObservationService;
 import com.haythem.service.PatientDetailsService;
 import com.haythem.service.PatientService;
 import com.haythem.service.RealTimeMeasur;
@@ -99,6 +104,13 @@ public class PdfController {
 
 	@Autowired
 	private FctrsService fctrsService;
+	
+	@Autowired
+	private BilanService bilanService;
+	
+
+	@Autowired
+	private ObservationService observationService;
 
 	@RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
 	public String downloadExcel(Model model) {
@@ -360,4 +372,33 @@ public class PdfController {
 		return content;
 	}
 
+	
+	
+	@RequestMapping(value = "/downloadBilanSeancePdf")
+	public String downloadBilanSeancePdf(
+			@RequestParam("idSeance") String idSeance, Model model)
+			throws ParseException {
+		try {
+			model.addAttribute("clinique", cliniqueService.findAll().get(0));
+			model.addAttribute("type", "BilanSeance");
+			System.out.println(""+idSeance);
+		Seance seance =	seanceService.findOne(Long.parseLong(idSeance));
+			Bilan bilan	= bilanService.findBySeance(seance);
+			List<Observation> observations = observationService.findByBilan(bilan);
+			        model.addAttribute("clinique", cliniqueService.findAll().get(0));
+			        model.addAttribute("seance", seance);
+			        model.addAttribute("bilan", bilan);
+					model.addAttribute("observations", observations);
+					model.addAttribute("patientInformation", informationService.findByuserLike(seance.getUser()));
+					model.addAttribute("adminInformation", bilan.getInfirmier());
+					
+					
+		} catch (Exception e) {
+
+		}
+		return "pdfView";
+	}
+	
+	
+	
 }

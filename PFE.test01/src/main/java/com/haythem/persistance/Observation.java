@@ -22,8 +22,11 @@ public class Observation extends AbstractPersistable<Long>{
 	@Column(name = "HEURE")
 	private String heure;
 	
-	@Column(name = "TENSION_ARTERIELLE")
-	private String tension_arterielle;
+	@Column(name = "TENSION_ARTERIELLE_S")
+	private String tension_arterielle_s;
+	
+	@Column(name = "TENSION_ARTERIELLE_D")
+	private String tension_arterielle_d;
 	
 	@Column(name = "HEPARINE")
 	private String  heparine ;
@@ -59,15 +62,32 @@ public class Observation extends AbstractPersistable<Long>{
 	}
 
 
-	public String getTension_arterielle() {
-		return tension_arterielle;
+	
+
+
+	public String getTension_arterielle_s() {
+		return tension_arterielle_s;
 	}
 
-
-	public void setTension_arterielle(String tension_arterielle) {
-		this.tension_arterielle = tension_arterielle;
+	public void setTension_arterielle_s(String tension_arterielle_s) {
+		this.tension_arterielle_s = tension_arterielle_s;
 	}
 
+	public String getTension_arterielle_d() {
+		return tension_arterielle_d;
+	}
+
+	public void setTension_arterielle_d(String tension_arterielle_d) {
+		this.tension_arterielle_d = tension_arterielle_d;
+	}
+
+	public Bilan getBilan() {
+		return bilan;
+	}
+
+	public void setBilan(Bilan bilan) {
+		this.bilan = bilan;
+	}
 
 	public String getHeparine() {
 		return heparine;
@@ -142,11 +162,12 @@ public class Observation extends AbstractPersistable<Long>{
 	public Observation() {
 	}
 
-	public Observation(String heure, String tension_arterielle, String heparine, String debit_sang, String uf,
-			String pv, String ptm, String uf_cumule, String observation, Bilan bilan) {
+	public Observation(String heure, String tension_arterielle_s, String tension_arterielle_d, String heparine,
+			String debit_sang, String uf, String pv, String ptm, String uf_cumule, String observation, Bilan bilan) {
 		super();
 		this.heure = heure;
-		this.tension_arterielle = tension_arterielle;
+		this.tension_arterielle_s = tension_arterielle_s;
+		this.tension_arterielle_d = tension_arterielle_d;
 		this.heparine = heparine;
 		this.debit_sang = debit_sang;
 		this.uf = uf;
@@ -156,5 +177,7 @@ public class Observation extends AbstractPersistable<Long>{
 		this.observation = observation;
 		this.bilan = bilan;
 	}
+
+
 	
 }

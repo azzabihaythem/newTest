@@ -32,32 +32,51 @@ public class Bilan extends AbstractPersistable<Long>{
 	
 	@Column(name = "GENERATEUR")
 	private String generateur;
+	
 	@Column(name = "FILTRE")
-	private String Filtre;
+	private String filtre;
+	
 	@Column(name = "POIDSSEC")
-	private String PoidsSec;
+	private String poidsSec;
+	
 	@Column(name = "UFT_DUREE")
-	private String UFTDuree;
+	private String uftDuree;
+	
 	@Column(name = "DEBUT_DE_DIALYSE")
-	private String DebutDeDialyse;
+	private String debutDeDialyse;
+	
 	@Column(name = "POIDS_DEBUT")
 	private String poidsDebut;
+	
 	@Column(name = "PRISE_DE_POIDS")
 	private String priseDePoids ;
-	@Column(name = "TENSION_ARTERIELLE_DEBUT")
-	private String TensionarterielleDebut ;
+	
+	@Column(name = "TENSION_ARTERIELLE_DEBUT_S")
+	private String tensionarterielleDebutSystolique ;
+	
+	@Column(name = "TENSION_ARTERIELLE_DEBUT_D")
+	private String tensionarterielleDebutDiastolique ;
+	
 	@Column(name = "FIN_DE_DIALYSE")
-	private String FinDeDialyse;
+	private String finDeDialyse;
+	
 	@Column(name = "POIDS_Fin")
 	private String poidsFin;
+	
 	@Column(name = "PERTE_DE_POIDS")
 	private String perteDePoids ;
-	@Column(name = "TENSION_ARTERIELLE_FIN")
-	private String TensionarterielleFin ;
+	
+	@Column(name = "TENSION_ARTERIELLE_FIN_S")
+	private String tensionarterielleFinSystolique ;
+	
+	@Column(name = "TENSION_ARTERIELLE_FIN_D")
+	private String tensionarterielleFinDiastolique;
+	
 	@Column(name = "HEPARINE")
 	private Boolean  heparine ;
+	
 	@Column(name = "TRAITEMENT")
-	private String  Traitement ;
+	private String  traitement ;
 	
 	@ManyToOne(optional = true)
 	@JoinColumn(name = "INFIRMIER")
@@ -71,15 +90,20 @@ public class Bilan extends AbstractPersistable<Long>{
 	private String  observationMedicales ;
 	
 	@Column(name = "UFT")
-	private String  UFT ;
+	private String  uft ;
 
 	@Column(name = "OPTIONS")
 	private String  options ;
 	
 	
+
+	
+
+
 	public String getGenerateur() {
 		return generateur;
 	}
+
 
 
 	public void setGenerateur(String generateur) {
@@ -87,44 +111,56 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public String getFiltre() {
-		return Filtre;
+		return filtre;
 	}
+
 
 
 	public void setFiltre(String filtre) {
-		Filtre = filtre;
+		this.filtre = filtre;
 	}
+
 
 
 	public String getPoidsSec() {
-		return PoidsSec;
+		return poidsSec;
 	}
+
 
 
 	public void setPoidsSec(String poidsSec) {
-		PoidsSec = poidsSec;
+		this.poidsSec = poidsSec;
 	}
 
 
-	public String getUFTDuree() {
-		return UFTDuree;
+
+
+
+
+	public String getUftDuree() {
+		return uftDuree;
 	}
 
 
-	public void setUFTDuree(String uFTDuree) {
-		UFTDuree = uFTDuree;
+
+	public void setUftDuree(String uftDuree) {
+		this.uftDuree = uftDuree;
 	}
+
 
 
 	public String getDebutDeDialyse() {
-		return DebutDeDialyse;
+		return debutDeDialyse;
 	}
+
 
 
 	public void setDebutDeDialyse(String debutDeDialyse) {
-		DebutDeDialyse = debutDeDialyse;
+		this.debutDeDialyse = debutDeDialyse;
 	}
+
 
 
 	public String getPoidsDebut() {
@@ -132,9 +168,11 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setPoidsDebut(String poidsDebut) {
 		this.poidsDebut = poidsDebut;
 	}
+
 
 
 	public String getPriseDePoids() {
@@ -142,29 +180,26 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setPriseDePoids(String priseDePoids) {
 		this.priseDePoids = priseDePoids;
 	}
 
 
-	public String getTensionarterielleDebut() {
-		return TensionarterielleDebut;
-	}
 
 
-	public void setTensionarterielleDebut(String tensionarterielleDebut) {
-		TensionarterielleDebut = tensionarterielleDebut;
-	}
 
 
 	public String getFinDeDialyse() {
-		return FinDeDialyse;
+		return finDeDialyse;
 	}
+
 
 
 	public void setFinDeDialyse(String finDeDialyse) {
-		FinDeDialyse = finDeDialyse;
+		this.finDeDialyse = finDeDialyse;
 	}
+
 
 
 	public String getPoidsFin() {
@@ -172,9 +207,11 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setPoidsFin(String poidsFin) {
 		this.poidsFin = poidsFin;
 	}
+
 
 
 	public String getPerteDePoids() {
@@ -182,19 +219,93 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setPerteDePoids(String perteDePoids) {
 		this.perteDePoids = perteDePoids;
 	}
 
 
-	public String getTensionarterielleFin() {
-		return TensionarterielleFin;
+
+
+
+
+	public String getTensionarterielleDebutSystolique() {
+		return tensionarterielleDebutSystolique;
 	}
 
 
-	public void setTensionarterielleFin(String tensionarterielleFin) {
-		TensionarterielleFin = tensionarterielleFin;
+
+	public void setTensionarterielleDebutSystolique(String tensionarterielleDebutSystolique) {
+		this.tensionarterielleDebutSystolique = tensionarterielleDebutSystolique;
 	}
+
+
+
+	public String getTensionarterielleDebutDiastolique() {
+		return tensionarterielleDebutDiastolique;
+	}
+
+
+
+	public Bilan(String generateur, String filtre, String poidsSec, String uftDuree, String debutDeDialyse,
+			String poidsDebut, String priseDePoids, String tensionarterielleDebutSystolique,
+			String tensionarterielleDebutDiastolique, String finDeDialyse, String poidsFin, String perteDePoids,
+			String tensionarterielleFinSystolique, String tensionarterielleFinDiastolique, Boolean heparine,
+			String traitement, User infirmier, Seance seance, String observationMedicales, String uft, String options) {
+		super();
+		this.generateur = generateur;
+		this.filtre = filtre;
+		this.poidsSec = poidsSec;
+		this.uftDuree = uftDuree;
+		this.debutDeDialyse = debutDeDialyse;
+		this.poidsDebut = poidsDebut;
+		this.priseDePoids = priseDePoids;
+		this.tensionarterielleDebutSystolique = tensionarterielleDebutSystolique;
+		this.tensionarterielleDebutDiastolique = tensionarterielleDebutDiastolique;
+		this.finDeDialyse = finDeDialyse;
+		this.poidsFin = poidsFin;
+		this.perteDePoids = perteDePoids;
+		this.tensionarterielleFinSystolique = tensionarterielleFinSystolique;
+		this.tensionarterielleFinDiastolique = tensionarterielleFinDiastolique;
+		this.heparine = heparine;
+		this.traitement = traitement;
+		this.infirmier = infirmier;
+		this.seance = seance;
+		this.observationMedicales = observationMedicales;
+		this.uft = uft;
+		this.options = options;
+	}
+
+
+
+	public void setTensionarterielleDebutDiastolique(String tensionarterielleDebutDiastolique) {
+		this.tensionarterielleDebutDiastolique = tensionarterielleDebutDiastolique;
+	}
+
+
+
+	public String getTensionarterielleFinSystolique() {
+		return tensionarterielleFinSystolique;
+	}
+
+
+
+	public void setTensionarterielleFinSystolique(String tensionarterielleFinSystolique) {
+		this.tensionarterielleFinSystolique = tensionarterielleFinSystolique;
+	}
+
+
+
+	public String getTensionarterielleFinDiastolique() {
+		return tensionarterielleFinDiastolique;
+	}
+
+
+
+	public void setTensionarterielleFinDiastolique(String tensionarterielleFinDiastolique) {
+		this.tensionarterielleFinDiastolique = tensionarterielleFinDiastolique;
+	}
+
 
 
 	public Boolean getHeparine() {
@@ -202,19 +313,23 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setHeparine(Boolean heparine) {
 		this.heparine = heparine;
 	}
 
 
+
 	public String getTraitement() {
-		return Traitement;
+		return traitement;
 	}
+
 
 
 	public void setTraitement(String traitement) {
-		Traitement = traitement;
+		this.traitement = traitement;
 	}
+
 
 
 	public User getInfirmier() {
@@ -222,9 +337,11 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setInfirmier(User infirmier) {
 		this.infirmier = infirmier;
 	}
+
 
 
 	public Seance getSeance() {
@@ -232,9 +349,11 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setSeance(Seance seance) {
 		this.seance = seance;
 	}
+
 
 
 	public String getObservationMedicales() {
@@ -242,19 +361,27 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setObservationMedicales(String observationMedicales) {
 		this.observationMedicales = observationMedicales;
 	}
 
 
-	public String getUFT() {
-		return UFT;
+
+
+
+
+
+	public String getUft() {
+		return uft;
 	}
 
 
-	public void setUFT(String uFT) {
-		UFT = uFT;
+
+	public void setUft(String uft) {
+		this.uft = uft;
 	}
+
 
 
 	public String getOptions() {
@@ -262,39 +389,11 @@ public class Bilan extends AbstractPersistable<Long>{
 	}
 
 
+
 	public void setOptions(String options) {
 		this.options = options;
 	}
 
-
-
-
-
-	public Bilan(String generateur, String filtre, String poidsSec, String uFTDuree, String debutDeDialyse,
-			String poidsDebut, String priseDePoids, String tensionarterielleDebut, String finDeDialyse, String poidsFin,
-			String perteDePoids, String tensionarterielleFin, Boolean heparine, String traitement, User infirmier,
-			Seance seance, String observationMedicales, String uFT, String options) {
-		super();
-		this.generateur = generateur;
-		Filtre = filtre;
-		PoidsSec = poidsSec;
-		UFTDuree = uFTDuree;
-		DebutDeDialyse = debutDeDialyse;
-		this.poidsDebut = poidsDebut;
-		this.priseDePoids = priseDePoids;
-		TensionarterielleDebut = tensionarterielleDebut;
-		FinDeDialyse = finDeDialyse;
-		this.poidsFin = poidsFin;
-		this.perteDePoids = perteDePoids;
-		TensionarterielleFin = tensionarterielleFin;
-		this.heparine = heparine;
-		Traitement = traitement;
-		this.infirmier = infirmier;
-		this.seance = seance;
-		this.observationMedicales = observationMedicales;
-		UFT = uFT;
-		this.options = options;
-	}
 
 
 	public Bilan() {

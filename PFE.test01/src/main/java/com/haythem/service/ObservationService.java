@@ -10,6 +10,7 @@ public interface ObservationService {
 	public Observation findOne(Long idObservation);
 	public void delete(Long idObservation);
 	public List<Observation> findAll();
-	public void update(Long idObservation ,String heure, String tension_arterielle, String heparine, String debit_sang, String uf,
-			String pv, String ptm, String uf_cumule, String observation, Bilan bilan);
+	public void update(Long idObservation ,String heure, String tension_arterielle_s, String tension_arterielle_d, String heparine,
+			String debit_sang, String uf, String pv, String ptm, String uf_cumule, String observation, Bilan bilan);
+	public List<Observation> findByBilan(Bilan bilan);
 }

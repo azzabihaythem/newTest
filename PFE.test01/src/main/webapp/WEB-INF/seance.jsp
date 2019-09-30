@@ -219,6 +219,7 @@
 											<th>user User-Name</th>
 											<th>Type</th>
 											<th>Date</th>
+											<th>Bilan</th>
 											<th>Actions</th>
 										</tr>
 									</thead>
@@ -240,7 +241,13 @@
 												<td id="<%="sVersion" + j%>" class="center">${fn:substring(u.date,
 													0, 10)}</td>
 
-
+                                                <td id="<%="hBilan" + j%>">
+                                                  <a href="bilan?id=${u.id}">
+                                                  <img src="<c:url value="/resources/img/observation.png"/>" height="42" width="42" >
+                                                  </a>
+                                                  <a href="downloadBilanSeancePdf?idSeance=${u.id}">PDF
+                                                  </a>
+                                                </td>
 												<td class="center"><a class="btn btn-info btn-setting"
 													onclick="affichage(<%= j %>,${u.id})"> <i
 														class="icon-edit icon-white"></i>
