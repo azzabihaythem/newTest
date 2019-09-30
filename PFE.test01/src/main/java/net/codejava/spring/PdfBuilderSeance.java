@@ -75,8 +75,8 @@ public class PdfBuilderSeance {
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 			
-//			preface = new Paragraph(new Phrase("N°EMPLOYEUR : 56615159²", normal));
-			preface = new Paragraph(new Phrase("N°EMPLOYEUR : "+clinique.getEmployNumber(), normal));
+//			preface = new Paragraph(new Phrase("Nï¿½EMPLOYEUR : 56615159ï¿½", normal));
+			preface = new Paragraph(new Phrase("Nï¿½EMPLOYEUR : "+clinique.getEmployNumber(), normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 //			preface = new Paragraph(new Phrase("TEL:98 430 095/50 636 847", normal));
@@ -96,11 +96,11 @@ public class PdfBuilderSeance {
 			
 			
 			if(seanceList.get(0).getFacture().getFactureNumber()==null){
-		preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE N° "+seanceList.get(0).getFacture().getId(), normal));
+		preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE Nï¿½ "+seanceList.get(0).getFacture().getId(), normal));
 		preface.setAlignment(Element.ALIGN_CENTER);
 		doc.add(preface);
 			}else{
-				preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE N° "+seanceList.get(0).getFacture().getFactureNumber(), normal));
+				preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE Nï¿½ "+seanceList.get(0).getFacture().getFactureNumber(), normal));
 				preface.setAlignment(Element.ALIGN_CENTER);
 				doc.add(preface);
 				
@@ -119,14 +119,14 @@ public class PdfBuilderSeance {
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
 		
-//		doc.add(new Paragraph("FACTURE D'HEMODIALYSE N° "+seanceList.get(0).getFacture().getId()));
+//		doc.add(new Paragraph("FACTURE D'HEMODIALYSE Nï¿½ "+seanceList.get(0).getFacture().getId()));
 		doc.addCreator("Educanet");
 		
 		
 		preface = new Paragraph(new Phrase("     Doit                         : "+patientDetails.getDOIT(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-		preface = new Paragraph(new Phrase("     Affilé                        : "+patientDetails.getAffile(), normal));
+		preface = new Paragraph(new Phrase("     Affilï¿½                        : "+patientDetails.getAffile(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		try{
@@ -154,15 +154,15 @@ public class PdfBuilderSeance {
 		sdf.applyPattern(NEW_FORMAT);
 //		newDateString = sdf.format(patientDetails.getDateDebut());
 		
-		preface = new Paragraph(new Phrase("     N°Affilation             : "+patientDetails.getNumAffilation(), normal));
+		preface = new Paragraph(new Phrase("     Nï¿½Affilation             : "+patientDetails.getNumAffilation(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
-		preface = new Paragraph(new Phrase("     Prise en charge      : N°"+patientDetails.getNumPriseEnCharge()+" DU "+sdf.format(patientDetails.getDateDebut())+" AU "+sdf.format(patientDetails.getDateFin()), normal));
+		preface = new Paragraph(new Phrase("     Prise en charge      : Nï¿½"+patientDetails.getNumPriseEnCharge()+" DU "+sdf.format(patientDetails.getDateDebut())+" AU "+sdf.format(patientDetails.getDateFin()), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
-		preface = new Paragraph(new Phrase("     Nombre de Séance      : "+seanceList.size(), normal));
+		preface = new Paragraph(new Phrase("     Nombre de Sï¿½ance      : "+seanceList.size(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
@@ -196,7 +196,7 @@ public class PdfBuilderSeance {
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		cell.setPadding(5);
 		// write table header
-		cell.setPhrase(new Phrase("Jour de présence", normal));
+		cell.setPhrase(new Phrase("Jour de prï¿½sence", normal));
 		cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		table.addCell(cell);
@@ -242,7 +242,7 @@ public class PdfBuilderSeance {
 				if (i == 1) {
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-					cell.setPhrase(new Phrase("1 ére seance  "
+					cell.setPhrase(new Phrase("1 ï¿½re seance  "
 							+ sdf.format(aSeance.getDate()), normal));
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -251,7 +251,7 @@ public class PdfBuilderSeance {
 				} else {
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-					cell.setPhrase(new Phrase(i + " éme seance "
+					cell.setPhrase(new Phrase(i + " ï¿½me seance "
 							+ sdf.format(aSeance.getDate() ), normal));
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -376,23 +376,23 @@ public class PdfBuilderSeance {
 //		totalGlobal =987L;
 		String dinars = FrenchNumberToWords.convert(totalGlobal/1000) +" dinars";
 		String Millimes = FrenchNumberToWords.convert(totalGlobal%1000) +" Millimes";
-//		preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : ", normal));
+//		preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : ", normal));
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
 		preface = new Paragraph(new Phrase("\n" , normal2));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-		if(!dinars.equals("zéro dinars")&&!Millimes.equals("zéro Millimes")){
-		preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+dinars +" et "+ Millimes, normal2));
+		if(!dinars.equals("zï¿½ro dinars")&&!Millimes.equals("zï¿½ro Millimes")){
+		preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+dinars +" et "+ Millimes, normal2));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-		}else if(!dinars.equals("zéro dinars")&&Millimes.equals("zéro Millimes")){
-			preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+dinars , normal2));
+		}else if(!dinars.equals("zï¿½ro dinars")&&Millimes.equals("zï¿½ro Millimes")){
+			preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+dinars , normal2));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 
-		}else if(dinars.equals("zéro dinars")&&!Millimes.equals("zéro Millimes")){
-			preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+Millimes , normal2));
+		}else if(dinars.equals("zï¿½ro dinars")&&!Millimes.equals("zï¿½ro Millimes")){
+			preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+Millimes , normal2));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 
@@ -405,8 +405,8 @@ public class PdfBuilderSeance {
 		preface = new Paragraph(new Phrase("BANQUE : "+banque.getBaqueName() , normal2));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-//		preface = new Paragraph(new Phrase("N°COMPTE : 05038000106300019897" , normal2));
-		preface = new Paragraph(new Phrase("N°COMPTE : "+banque.getNumber() , normal2));
+//		preface = new Paragraph(new Phrase("Nï¿½COMPTE : 05038000106300019897" , normal2));
+		preface = new Paragraph(new Phrase("Nï¿½COMPTE : "+banque.getNumber() , normal2));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		preface = new Paragraph(new Phrase("                                                                           SIGNATURE" , normal2));
@@ -427,7 +427,7 @@ public class PdfBuilderSeance {
 				"soixante", "soixante dix", "quatre vingt", "quatre vingt dix" };
 		// System.out.println (dizaine[1]);
 		// System.out.println (chiffre[2]);
-//		System.out.println("Entrer le montant à convertir");
+//		System.out.println("Entrer le montant ï¿½ convertir");
 		int montant = args;
 		int resuldiv = (int) (montant) / 1000000;
 		System.out.println(resuldiv);
@@ -503,8 +503,8 @@ public class PdfBuilderSeance {
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 			
-//			preface = new Paragraph(new Phrase("N°EMPLOYEUR : 56615159²", normal));
-			preface = new Paragraph(new Phrase("N°EMPLOYEUR : "+clinique.getEmployNumber(), normal));
+//			preface = new Paragraph(new Phrase("Nï¿½EMPLOYEUR : 56615159ï¿½", normal));
+			preface = new Paragraph(new Phrase("Nï¿½EMPLOYEUR : "+clinique.getEmployNumber(), normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 //			preface = new Paragraph(new Phrase("TEL:98 430 095/50 636 847", normal));
@@ -532,7 +532,7 @@ public class PdfBuilderSeance {
 					factureNumber = "0" + factureNumber;
 				}
 				
-		preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE N° "+factureNumber, normal));
+		preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE Nï¿½ "+factureNumber, normal));
 		preface.setAlignment(Element.ALIGN_CENTER);
 		doc.add(preface);
 			}else{
@@ -545,7 +545,7 @@ public class PdfBuilderSeance {
 					factureNumber = "0" + factureNumber;
 				}
 				
-				preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE N° "+factureNumber, normal));
+				preface = new Paragraph(new Phrase("FACTURE D'HEMODIALYSE Nï¿½ "+factureNumber, normal));
 				preface.setAlignment(Element.ALIGN_CENTER);
 				doc.add(preface);
 				
@@ -564,14 +564,14 @@ public class PdfBuilderSeance {
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
-//		doc.add(new Paragraph("FACTURE D'HEMODIALYSE N° "+seanceList.get(0).getFacture().getId()));
+//		doc.add(new Paragraph("FACTURE D'HEMODIALYSE Nï¿½ "+seanceList.get(0).getFacture().getId()));
 		doc.addCreator("Educanet");
 		
 		
 		preface = new Paragraph(new Phrase("     Doit                         : "+aSeanceListPatient.getKey().getPatientDetails().getDOIT(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-		preface = new Paragraph(new Phrase("     Affilé                        : "+aSeanceListPatient.getKey().getPatientDetails().getAffile(), normal));
+		preface = new Paragraph(new Phrase("     Affilï¿½                        : "+aSeanceListPatient.getKey().getPatientDetails().getAffile(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		try{
@@ -599,15 +599,15 @@ public class PdfBuilderSeance {
 		sdf.applyPattern(NEW_FORMAT);
 //		newDateString = sdf.format(patientDetails.getDateDebut());
 		
-		preface = new Paragraph(new Phrase("     N°Affilation             : "+aSeanceListPatient.getKey().getPatientDetails().getNumAffilation(), normal));
+		preface = new Paragraph(new Phrase("     Nï¿½Affilation             : "+aSeanceListPatient.getKey().getPatientDetails().getNumAffilation(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
-		preface = new Paragraph(new Phrase("     Prise en charge      : N°"+aSeanceListPatient.getKey().getPatientDetails().getNumPriseEnCharge()+" DU "+sdf.format(aSeanceListPatient.getKey().getPatientDetails().getDateDebut())+" AU "+sdf.format(aSeanceListPatient.getKey().getPatientDetails().getDateFin()), normal));
+		preface = new Paragraph(new Phrase("     Prise en charge      : Nï¿½"+aSeanceListPatient.getKey().getPatientDetails().getNumPriseEnCharge()+" DU "+sdf.format(aSeanceListPatient.getKey().getPatientDetails().getDateDebut())+" AU "+sdf.format(aSeanceListPatient.getKey().getPatientDetails().getDateFin()), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		
-		preface = new Paragraph(new Phrase("     Nombre de Séance      : "+aSeanceListPatient.getValue().size(), normal));
+		preface = new Paragraph(new Phrase("     Nombre de Sï¿½ance      : "+aSeanceListPatient.getValue().size(), normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
 		 seanceNumber = aSeanceListPatient.getValue().size()+"";
@@ -645,7 +645,7 @@ public class PdfBuilderSeance {
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		cell.setPadding(5);
 		// write table header
-//		cell.setPhrase(new Phrase("Jour de présence", normal));
+//		cell.setPhrase(new Phrase("Jour de prï¿½sence", normal));
 		cell.setPhrase(new Phrase("SEANCES", normal));
 		cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -683,7 +683,7 @@ public class PdfBuilderSeance {
 				if (i == 1) {
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-					cell.setPhrase(new Phrase("1 ére seance  "
+					cell.setPhrase(new Phrase("1 ï¿½re seance  "
 							+ sdf.format(aSeance.getDate()), normal));
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -692,7 +692,7 @@ public class PdfBuilderSeance {
 				} else {
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-					cell.setPhrase(new Phrase(i + " éme seance "
+					cell.setPhrase(new Phrase(i + " ï¿½me seance "
 							+ sdf.format(aSeance.getDate() ), normal));
 					cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 					cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -857,7 +857,7 @@ public class PdfBuilderSeance {
 				str = totalEXONERE + "";
 				str = new StringBuilder(str).insert(str.length() - 3, ",")
 						.toString();
-			preface = new Paragraph(new Phrase("Montant exonéré : 33 ,000 D x "+seanceNumber+" = "+str +" D", normal));
+			preface = new Paragraph(new Phrase("Montant exonï¿½rï¿½ : 33 ,000 D x "+seanceNumber+" = "+str +" D", normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 			
@@ -865,7 +865,7 @@ public class PdfBuilderSeance {
 			str = totalMTHTAXE + "";
 			str = new StringBuilder(str).insert(str.length() - 3, ",")
 					.toString();
-			preface = new Paragraph(new Phrase("Montant H T       : 62.264 D  x "+seanceNumber+" = "+str +" D", normal));
+			preface = new Paragraph(new Phrase("Montant H T       : 77.570 D  x "+seanceNumber+" = "+str +" D", normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 			
@@ -873,7 +873,7 @@ public class PdfBuilderSeance {
 		 	str = totalMTTVA + "";
 				str = new StringBuilder(str).insert(str.length() - 3, ",")
 						.toString();
-			preface = new Paragraph(new Phrase("Montant TVA      : 3.736 D   x "+seanceNumber+" = "+str +" D", normal));
+			preface = new Paragraph(new Phrase("Montant TVA      : 5.430 D   x "+seanceNumber+" = "+str +" D", normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 			
@@ -887,23 +887,23 @@ public class PdfBuilderSeance {
 //		totalGlobal =987L;
 		String dinars = FrenchNumberToWords.convert(totalGlobal/1000) +" dinars";
 		String Millimes = FrenchNumberToWords.convert(totalGlobal%1000) +" Millimes";
-//		preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : ", normal));
+//		preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : ", normal));
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
 //		preface = new Paragraph(new Phrase("\n" , normal2));
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
-		if(!dinars.equals("zéro dinars")&&!Millimes.equals("zéro Millimes")){
-		preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+dinars +" et "+ Millimes, normal));
+		if(!dinars.equals("zï¿½ro dinars")&&!Millimes.equals("zï¿½ro Millimes")){
+		preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+dinars +" et "+ Millimes, normal));
 		preface.setAlignment(Element.ALIGN_LEFT);
 		doc.add(preface);
-		}else if(!dinars.equals("zéro dinars")&&Millimes.equals("zéro Millimes")){
-			preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+dinars , normal));
+		}else if(!dinars.equals("zï¿½ro dinars")&&Millimes.equals("zï¿½ro Millimes")){
+			preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+dinars , normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 
-		}else if(dinars.equals("zéro dinars")&&!Millimes.equals("zéro Millimes")){
-			preface = new Paragraph(new Phrase("Arretée la présente facture à la somme de : "+Millimes , normal));
+		}else if(dinars.equals("zï¿½ro dinars")&&!Millimes.equals("zï¿½ro Millimes")){
+			preface = new Paragraph(new Phrase("Arretï¿½e la prï¿½sente facture ï¿½ la somme de : "+Millimes , normal));
 			preface.setAlignment(Element.ALIGN_LEFT);
 			doc.add(preface);
 
@@ -918,7 +918,7 @@ public class PdfBuilderSeance {
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
 //
-//		preface = new Paragraph(new Phrase("N°COMPTE : "+banque.getNumber() , normal));
+//		preface = new Paragraph(new Phrase("Nï¿½COMPTE : "+banque.getNumber() , normal));
 //		preface.setAlignment(Element.ALIGN_LEFT);
 //		doc.add(preface);
 		
@@ -1004,7 +1004,7 @@ public class PdfBuilderSeance {
 //	    default:
 //	    }
 //
-//	    // séparateur "-" "et"  ""
+//	    // sï¿½parateur "-" "et"  ""
 //	    String laLiaison = "";
 //	    if (laDizaine > 1) {
 //	      laLiaison = "-";
@@ -1082,8 +1082,8 @@ public class PdfBuilderSeance {
 //	  }
 //
 //	  public static String convert(long number) {
-//	    // 0 à 999 999 999 999
-//	    if (number == 0) { return "zéro"; }
+//	    // 0 ï¿½ 999 999 999 999
+//	    if (number == 0) { return "zï¿½ro"; }
 //
 //	    String snumber = Long.toString(number);
 //
@@ -1184,7 +1184,7 @@ public class PdfBuilderSeance {
 //	    System.out.println("*** " + FrenchNumberToWords.convert(2147483647));
 //	    /*
 //	     *** OUTPUT
-//	     *** zéro
+//	     *** zï¿½ro
 //	     *** neuf
 //	     *** dix-neuf
 //	     *** vingt et un
